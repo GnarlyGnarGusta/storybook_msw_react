@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Main from './components/Main';
+
+import content from './content';
+import ids from './ids';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="w-full h-screen flex flex-col">
+            <div className="w-full md:max-w-screen-md mx-auto mb-6 px-4">
+                <a
+                    className="sr-only"
+                    id={ids.skipLink()}
+                    href={`#${ids.mainContent()}`}
+                >
+                    {content.skip}
+                </a>
+                <Header />
+                <main id={ids.mainContent()}>
+                    <Main />
+                </main>
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
